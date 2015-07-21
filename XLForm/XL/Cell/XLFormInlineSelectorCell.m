@@ -51,6 +51,10 @@
         UITableViewCell<XLFormInlineRowDescriptorCell> * inlineCell = (UITableViewCell<XLFormInlineRowDescriptorCell> *)cell;
         inlineCell.inlineRowDescriptor = self.rowDescriptor;
         [self.rowDescriptor.sectionDescriptor addFormRow:inlineRowDescriptor afterRow:self.rowDescriptor];
+        if (!self.rowDescriptor.value) {
+            self.rowDescriptor.value = self.rowDescriptor.selectorOptions[0];
+            self.detailTextLabel.text = self.rowDescriptor.value;
+        }
     }
     return result;
 }

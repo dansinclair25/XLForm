@@ -30,4 +30,6 @@
 
 +(XLFormValidator *)emailValidator;
 
++(XLFormValidator *)minimumLength:(int)minLength maxLength:(int)maxLength msg:(NSString *)msg;
+
 @end
