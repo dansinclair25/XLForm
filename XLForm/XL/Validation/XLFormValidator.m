@@ -43,8 +43,8 @@
     return [XLFormRegexValidator formRegexValidatorWithMsg:NSLocalizedString(@"Invalid email address", nil) regex:@"/^.+@.+\\.[a-z]+$/i"];
 }
 
-+(XLFormValidator *)minimumLength:(int)minLength maxLength:(int)maxLength msg:(NSString *)msg{
-    return [XLFormRegexValidator formRegexValidatorWithMsg:msg regex:[NSString stringWithFormat:@"^.{%i,%i}$", minLength, maxLength]];
++(XLFormValidator *)minimumLength:(int)minLength msg:(NSString *)msg{
+    return [XLFormRegexValidator formRegexValidatorWithMsg:msg regex:[NSString stringWithFormat:@"^.{%i,}$", minLength]];
 }
 
 @end
