@@ -32,4 +32,6 @@
 
 +(XLFormValidator *)minimumLength:(int)minLength msg:(NSString *)msg;
 
++ (XLFormValidator *)dateIsNewerThanNowValidator;
+
 @end

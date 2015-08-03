@@ -25,6 +25,7 @@
 
 #import "XLFormValidationStatus.h"
 #import "XLFormRegexValidator.h"
+#import "XLFormDateValidator.h"
 
 #import "XLFormValidator.h"
 
@@ -45,6 +46,10 @@
 
 +(XLFormValidator *)minimumLength:(int)minLength msg:(NSString *)msg{
     return [XLFormRegexValidator formRegexValidatorWithMsg:msg regex:[NSString stringWithFormat:@"^.{%i,}$", minLength]];
+}
+
++(XLFormValidator *)dateIsNewerThanNowValidator {
+    return [XLFormDateValidator formDateValidatorWithMsg:@"Expiry date is not valid"];
 }
 
 @end
