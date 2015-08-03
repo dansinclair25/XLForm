@@ -17,7 +17,7 @@
 @property NSDate *toDate;
 
 - (id)initWithMsg:(NSString*)msg;
-+ (XLFormDateValidator *)formDateValidatorWithMsg:(NSString*)msg
++ (XLFormDateValidator *)formDateValidatorWithMsg:(NSString*)msg;
 
 
 @end
