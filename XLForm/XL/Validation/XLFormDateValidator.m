@@ -31,23 +31,31 @@
         // we only validate if there is a value
         // assumption: required validation is already triggered
         // if this field is optional, we only validate if there is a value
+        
+        NSLog(@"%@", row.value);
+        
         id value = row.value;
         if ([value isKindOfClass:[NSNumber class]]){
             value = [value stringValue];
         }
-        if ([value isKindOfClass:[NSString class]] && [value length] > 0) {
+        if ([value isKindOfClass:[NSString class]]) {
+            if ([value length] != 5) {
+                return [XLFormValidationStatus formValidationStatusWithMsg:self.msg status:NO rowDescriptor:row];
+            }
             
             NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
             NSDateComponents *components = [[NSDateComponents alloc] init];
             components.day = 1;
             components.month = [[value substringToIndex:2] integerValue];
-            components.year = [[value substringFromIndex:3] integerValue];
+            components.year = 2000 + [[value substringFromIndex:3] integerValue];
+            
+            NSLog(@"%@", components);
             
             NSDate *exDate = [cal dateFromComponents:components];
             
             if ([exDate laterDate:[NSDate new]] == exDate) {
                 return [XLFormValidationStatus formValidationStatusWithMsg:self.msg status:YES rowDescriptor:row];
-            
+                
             } else {
                 return [XLFormValidationStatus formValidationStatusWithMsg:self.msg status:NO rowDescriptor:row];
             }
