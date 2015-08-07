@@ -98,7 +98,7 @@
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     }
-    else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeInteger]){
+    else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeInteger] || [self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeIntegerText]){
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }
     else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeDecimal]){

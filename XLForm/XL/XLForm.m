@@ -36,6 +36,7 @@ NSString *const XLFormRowDescriptorTypePhone = @"phone";
 NSString *const XLFormRowDescriptorTypeTwitter = @"twitter";
 NSString *const XLFormRowDescriptorTypeAccount = @"account";
 NSString *const XLFormRowDescriptorTypeInteger = @"integer";
+NSString *const XLFormRowDescriptorTypeIntegerText = @"integerText";
 NSString *const XLFormRowDescriptorTypeDecimal = @"decimal";
 NSString *const XLFormRowDescriptorTypeTextView = @"textView";
 NSString *const XLFormRowDescriptorTypeSelectorPush = @"selectorPush";
