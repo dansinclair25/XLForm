@@ -50,7 +50,7 @@
     if (_leftButton) return _leftButton;
     _leftButton = [[XLFormRightImageButton alloc] init];
     [_leftButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"XLForm.bundle/forwardarrow.png"]];
+    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"XLForm.bundle/forwardarrow@2x.png"]];
     [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [_leftButton addSubview:imageView];
     [_leftButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[image(8)]|" options:0 metrics:0 views:@{@"image": imageView}]];
@@ -137,7 +137,7 @@
     [self.rowDescriptor setTitle:[self.rowDescriptor.leftRightSelectorLeftOptionSelected displayText]];
     self.rightLabel.text = [self rightTextLabel];
     [self.leftButton setEnabled:!self.rowDescriptor.isDisabled];
-    self.accessoryView = self.rowDescriptor.isDisabled ? nil : [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"XLForm.bundle/forwardarrow.png"]];
+    self.accessoryView = self.rowDescriptor.isDisabled ? nil : [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"XLForm.bundle/forwardarrow@2x.png"]];
     self.editingAccessoryView = self.accessoryView;
     self.selectionStyle = self.rowDescriptor.isDisabled ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleDefault;
 }
