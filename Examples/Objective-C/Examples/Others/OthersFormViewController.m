@@ -76,13 +76,15 @@ NSString *const kButtonWithStoryboardId = @"buttonWithStoryboardId";
     [section addFormRow:[XLFormRowDescriptor formRowDescriptorWithTag:kSwitchBool rowType:XLFormRowDescriptorTypeBooleanSwitch title:@"Switch"]];
     
     // check
-    [section addFormRow:[XLFormRowDescriptor formRowDescriptorWithTag:kSwitchCheck rowType:XLFormRowDescriptorTypeBooleanCheck title:@"Check"]];
+    XLFormRowDescriptor *row = [XLFormRowDescriptor formRowDescriptorWithTag:kSwitchCheck rowType:XLFormRowDescriptorTypeBooleanCheck title:@"Check me please I should be a long label, really really really really long"];
+    [section addFormRow:row];
+    
     
     // step counter
     [section addFormRow:[XLFormRowDescriptor formRowDescriptorWithTag:kStepCounter rowType:XLFormRowDescriptorTypeStepCounter title:@"Step counter"]];
     
     // Segmented Control
-    XLFormRowDescriptor * row = [XLFormRowDescriptor formRowDescriptorWithTag:kSegmentedControl rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Fruits"];
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:kSegmentedControl rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Fruits"];
     row.selectorOptions = @[@"Apple", @"Orange", @"Pear"];
     row.value = @"Pear";
     [section addFormRow:row];
