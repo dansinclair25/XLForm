@@ -57,7 +57,7 @@
                               @"switch": self.switchControl};
     
     
-    NSDictionary *metrics = @{@"margin" :@12.0};
+    NSDictionary *metrics = @{@"margin" :@30.0};
     
     [result addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[label]-(margin)-[switch]"
                                                                         options:NSLayoutFormatAlignAllTop
