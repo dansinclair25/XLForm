@@ -39,6 +39,10 @@
     self.editingAccessoryView = self.accessoryView;
     [self.switchControl addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
     self.textLabel.numberOfLines = 0;
+    [self.textLabel sizeToFit];
+    CGRect lblFrame = self.textLabel.frame;
+    lblFrame.size.width = self.contentView.frame.size.width - self.accessoryView.frame.size.width;
+    self.textLabel.frame = lblFrame;
 }
 
 - (void)update
@@ -52,9 +56,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    CGRect lblFrame = self.textLabel.frame;
-    lblFrame.size.width = self.contentView.frame.size.width - self.accessoryView.frame.size.width;
-    self.textLabel.frame = lblFrame;
+    
 }
 
 - (UISwitch *)switchControl
