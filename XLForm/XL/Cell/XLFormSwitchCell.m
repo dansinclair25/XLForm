@@ -49,18 +49,26 @@
     self.switchControl.enabled = !self.rowDescriptor.isDisabled;
 }
 
-- (void)layoutSubviews {
+-(NSArray *)layoutConstraints{
     
-    CGRect lblFrame = self.textLabel.frame;
-    lblFrame.size.width = self.contentView.frame.size.width - self.accessoryView.frame.size.width;
-    self.textLabel.frame = lblFrame;
-    [self.textLabel sizeToFit];
-
-    [super layoutSubviews];
-}
-
-+ (CGFloat)formDescriptorCellHeightForRowDescriptor:(XLFormRowDescriptor *)rowDescriptor {
-    return UITableViewAutomaticDimension;
+    NSMutableArray * result = [NSMutableArray array];
+    
+    NSDictionary * views = @{ @"label": self.textLabel,
+                              @"switch": self.switchControl};
+    
+    
+    NSDictionary *metrics = @{@"margin" :@12.0};
+    
+    [result addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[label]-(margin)-[switch]"
+                                                                        options:NSLayoutFormatAlignAllTop
+                                                                        metrics:metrics
+                                                                          views:views]];
+    
+    [result addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[label]"
+                                                                        options:0
+                                                                        metrics:metrics
+                                                                          views:views]];
+    return result;
 }
 
 - (UISwitch *)switchControl
