@@ -33,17 +33,13 @@
 {
     [super configure];
     self.accessoryType = UITableViewCellAccessoryCheckmark;
-    self.accessoryView = [[UIView alloc] initWithFrame:CGRectZero];
-
     self.editingAccessoryType = self.accessoryType;
 }
 
 - (void)update
 {
     [super update];
-    //CGRect accFrame = self.accessoryView.frame;
     
-    self.textLabel.numberOfLines = 0;
     self.textLabel.text = self.rowDescriptor.title;
     self.accessoryType = [self.rowDescriptor.value boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     self.editingAccessoryType =  self.accessoryType;
@@ -63,14 +59,10 @@
 -(void)formDescriptorCellDidSelectedWithFormController:(XLFormViewController *)controller
 {
     self.rowDescriptor.value = [NSNumber numberWithBool:![self.rowDescriptor.value boolValue]];
-    if ([self.rowDescriptor.value boolValue]) {
-        self.accessoryView = nil;
-    } else {
-        self.accessoryView = [[UIView alloc] initWithFrame:CGRectZero];
-    }
-    
     [self.formViewController updateFormRow:self.rowDescriptor];
     [controller.tableView deselectRowAtIndexPath:[controller.form indexPathOfFormRow:self.rowDescriptor] animated:YES];
+    
 }
+
 
 @end

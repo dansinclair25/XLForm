@@ -38,6 +38,7 @@
     self.accessoryView = [[UISwitch alloc] init];
     self.editingAccessoryView = self.accessoryView;
     [self.switchControl addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
+    self.textLabel.numberOfLines = 0;
 }
 
 - (void)update
@@ -46,6 +47,14 @@
     self.textLabel.text = self.rowDescriptor.title;
     self.switchControl.on = [self.rowDescriptor.value boolValue];
     self.switchControl.enabled = !self.rowDescriptor.isDisabled;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CGRect lblFrame = self.textLabel.frame;
+    lblFrame.size.width = self.contentView.frame.size.width - self.accessoryView.frame.size.width;
+    self.textLabel.frame = lblFrame;
 }
 
 - (UISwitch *)switchControl
