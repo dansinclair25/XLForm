@@ -42,6 +42,7 @@
     CGRect lblFrame = self.textLabel.frame;
     lblFrame.size.width = self.contentView.frame.size.width - self.accessoryView.frame.size.width;
     self.textLabel.frame = lblFrame;
+    [self.textLabel sizeToFit];
 }
 
 - (void)update
