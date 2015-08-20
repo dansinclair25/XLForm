@@ -59,6 +59,10 @@
     
 }
 
++ (CGFloat)formDescriptorCellHeightForRowDescriptor:(XLFormRowDescriptor *)rowDescriptor {
+    return UITableViewAutomaticDimension;
+}
+
 - (UISwitch *)switchControl
 {
     return (UISwitch *)self.accessoryView;
